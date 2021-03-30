@@ -12,7 +12,7 @@ public class EnemieGenerator : MonoBehaviour
 
     private int enemieIndex;
 
-    private float startDelay = 3;
+    private float startDelay = 20;
     private float counter;
     private float nextWaitTime = 3;
 

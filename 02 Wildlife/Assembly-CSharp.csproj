@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Prototype\_Scripts\ItemGenerator.cs" />
     <Compile Include="Assets\Scripts\SpawnManager.cs" />
+    <Compile Include="Assets\Prototype\_Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Challenge 2\Scripts\DestroyOutOfBoundsX.cs" />
     <Compile Include="Assets\Scripts\DestroyOutOfBounds.cs" />
     <Compile Include="Assets\Scripts\MoveForward.cs" />
@@ -72,7 +73,6 @@
     <Compile Include="Assets\Scripts\CheckCollision.cs" />
     <Compile Include="Assets\Prototype\_Scripts\EnemieMovement.cs" />
     <Compile Include="Assets\Challenge 2\Scripts\MoveForwardX.cs" />
-    <Compile Include="Assets\Prototype\_Scripts\FollowPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Course Library\_Source_Files\_LICENSE.txt" />
@@ -684,6 +684,12 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>Library\ScriptAssemblies\Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
