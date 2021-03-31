@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 313504183242293812}
   - component: {fileID: 8698151090967659819}
   - component: {fileID: -7555952913789128178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mysterious_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

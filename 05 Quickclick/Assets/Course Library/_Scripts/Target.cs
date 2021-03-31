@@ -19,19 +19,46 @@ public class Target : MonoBehaviour
         transform.position = RandomSpawnPosition(); 
     }
 
+    
+    /// <summary>
+    /// Genera una fuerza aleatoria
+    /// </summary>
+    /// <returns>Devuelve una fuerza aleatoria con sentido hacia arriba</returns>
     Vector3 RandomForce()
     {
         return Vector3.up * Random.Range(minForce, maxForce);
     }
     
+    /// <summary>
+    /// Genera un torque aleatorio
+    /// </summary>
+    /// <returns>Devuelve un torque aleatorio entre -maxTorque y maxTorque</returns>
     float RandomTorque()
     {
         return Random.Range(-maxTorque, maxTorque);
     }
     
+    /// <summary>
+    /// Genera una posición aleatoria de spawn
+    /// </summary>
+    /// <returns>Devuelve un Vector3 con X aleatoria, Y constante y Z = 0</returns>
     Vector3 RandomSpawnPosition()
     {
         return new Vector3(Random.Range(-xSpawnRange, xSpawnRange), ySpawnPos);
+    }
+
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Kill Zone"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
