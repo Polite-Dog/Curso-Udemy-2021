@@ -2,12 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Target : MonoBehaviour
 {
     private Rigidbody _rigidbody;
+    private GameManager gameManager;
+    [SerializeField]
+    private ParticleSystem _particleSystem;
 
     private float minForce = 14, maxForce = 18, maxTorque = 10, 
         xSpawnRange = 4, ySpawnPos = -6;
+
+    [SerializeField, Range(-100, 100)]
+    private int pointValue; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +24,9 @@ public class Target : MonoBehaviour
         _rigidbody.AddForce(RandomForce(), ForceMode.Impulse);
         _rigidbody.AddTorque(RandomTorque(), RandomTorque(),
             RandomTorque(), ForceMode.Impulse);
-        transform.position = RandomSpawnPosition(); 
+        transform.position = RandomSpawnPosition();
+
+        gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
     
@@ -49,7 +59,14 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        if(gameManager.gameState == GameManager.GameState.inGame)
+        {
+            Destroy(gameObject);
+            gameManager.UpdateScore(pointValue);
+            Instantiate(_particleSystem, transform.position,
+                _particleSystem.transform.rotation);
+        }
+        
         
     }
 
@@ -61,6 +78,7 @@ public class Target : MonoBehaviour
         }
     }
 
+    
     // Update is called once per frame
     void Update()
     {
