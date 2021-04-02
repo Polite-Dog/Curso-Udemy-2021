@@ -14,7 +14,9 @@ public class Target : MonoBehaviour
         xSpawnRange = 4, ySpawnPos = -6;
 
     [SerializeField, Range(-100, 100)]
-    private int pointValue; 
+    private int pointValue;
+
+    
 
 
     // Start is called before the first frame update
@@ -57,9 +59,10 @@ public class Target : MonoBehaviour
         return new Vector3(Random.Range(-xSpawnRange, xSpawnRange), ySpawnPos);
     }
 
-    private void OnMouseDown()
+    private void OnMouseOver()
     {
-        if(gameManager.gameState == GameManager.GameState.inGame)
+        if(gameManager.gameState == GameManager.GameState.inGame && 
+            Input.GetMouseButton(0))
         {
             Destroy(gameObject);
             gameManager.UpdateScore(pointValue);
